@@ -1,0 +1,13 @@
+echo "Install pkgfile..."
+sudo pacman -S pkgfile
+echo "Done."
+echo "Install command_not_found..."
+cd ~
+echo "command_not_found_handle(){" >> .bashrc
+echo "    printf \"找不到命令 %s ，\" \$1 " >> .bashrc
+echo "    echo \"但可以在以下软件包中找到：\"" >> .bashrc
+echo "    pkgfile \$1" >> .bashrc
+echo "    echo \"使用 sudo pacman -S package 来安装它们。\"" >> .bashrc
+echo "    return 1" >> .bashrc 
+echo "}" >> .bashrc
+echo "Done."
